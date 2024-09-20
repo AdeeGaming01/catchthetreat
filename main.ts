@@ -28,6 +28,7 @@ function restartGame () {
     basic.pause(500)
     playerScore = 0
     timer = 0
+    generateLevel()
 }
 input.onButtonPressed(Button.AB, function () {
     led.unplot(playerXPos, playerYPos)
