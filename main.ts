@@ -1,3 +1,5 @@
+/**
+ */
 function playerEncouragement () {
     basic.clearScreen()
     encouragement = randint(0, 2)
@@ -26,7 +28,6 @@ function restartGame () {
     basic.pause(500)
     playerScore = 0
     timer = 0
-    generateLevel()
 }
 input.onButtonPressed(Button.AB, function () {
     led.unplot(playerXPos, playerYPos)
@@ -52,8 +53,13 @@ function generateLevel () {
     basic.clearScreen()
     playerXPos = 0
     playerYPos = 0
-    treatXPos = randint(1, 4)
-    treatYPos = randint(1, 4)
+    treatXPos = randint(0, 4)
+    treatYPos = randint(0, 4)
+    if (playerXPos == treatXPos) {
+        if (playerYPos == treatYPos) {
+            generateLevel()
+        }
+    }
     led.plot(playerXPos, playerYPos)
     led.plot(treatXPos, treatYPos)
 }
